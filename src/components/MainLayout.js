@@ -157,6 +157,11 @@ const MainLayout = () => {
               icon: <FaClipboardList className="fs-4" />,
               label: "Enquiries",
             },
+            {
+              key: "suggestions",
+              icon: <FaClipboardList className="fs-4" />,
+              label: "Suggestions",
+            },
           ]}
         />
       </Sider>

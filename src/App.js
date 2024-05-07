@@ -24,6 +24,8 @@ import Couponlist from "./pages/Couponlist";
 import AddCoupon from "./pages/AddCoupon";
 import ViewEnq from "./pages/ViewEnq";
 import ViewOrder from "./pages/ViewOrder";
+import ViewSuggestion from "./pages/ViewSuggestion";
+import Suggestions from "./pages/Suggestions";
 
 function App() {
   return (
@@ -37,6 +39,8 @@ function App() {
           <Route index element={<Dashboard />} />
           <Route path="enquiries" element={<Enquiries />} />
           <Route path="enquiries/:id" element={<ViewEnq />} />
+          <Route path="suggestions" element={<Suggestions />} />
+          <Route path="suggestions/:id" element={<ViewSuggestion />} />
           <Route path="blog-list" element={<Bloglist />} />
           <Route path="blog" element={<Addblog />} />
           <Route path="blog/:id" element={<Addblog />} />
