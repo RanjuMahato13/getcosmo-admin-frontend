@@ -11,6 +11,7 @@ import enquiryReducer from "../features/enquiry/enquirySlice";
 import uploadReducer from "../features/upload/uploadSlice";
 import couponReducer from "../features/coupon/couponSlice";
 import suggestionReducer from "../features/suggestion/suggestionSlice";
+import faqReducer from "../features/faq/faqSlice";
 
 export const store = configureStore({
   reducer: {
@@ -26,5 +27,6 @@ export const store = configureStore({
     upload: uploadReducer,
     coupon: couponReducer,
     suggestion: suggestionReducer,
+    faq: faqReducer,
   },
 });

@@ -6,6 +6,8 @@ import {
   AiOutlineUser,
   AiOutlineBgColors,
 } from "react-icons/ai";
+import { FaPlusCircle, FaThList } from "react-icons/fa";
+import { RiQuestionnaireFill } from "react-icons/ri";
 import { RiCouponLine } from "react-icons/ri";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -161,6 +163,23 @@ const MainLayout = () => {
               key: "suggestions",
               icon: <FaClipboardList className="fs-4" />,
               label: "Suggestions",
+            },
+            {
+              key: "faqs-menu",
+              icon: <RiQuestionnaireFill className="fs-4" />,
+              label: "FAQs",
+              children: [
+                {
+                  key: "faqs",
+                  icon: <FaThList className="fs-4" />,
+                  label: "Manage FAQs",
+                },
+                {
+                  key: "add-faq",
+                  icon: <FaPlusCircle className="fs-4" />,
+                  label: "Add FAQ",
+                },
+              ],
             },
           ]}
         />

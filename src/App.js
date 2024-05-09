@@ -26,6 +26,8 @@ import ViewEnq from "./pages/ViewEnq";
 import ViewOrder from "./pages/ViewOrder";
 import ViewSuggestion from "./pages/ViewSuggestion";
 import Suggestions from "./pages/Suggestions";
+import ListFaqs from "./pages/ListFaqs";
+import AddFaq from "./pages/AddFaq";
 
 function App() {
   return (
@@ -64,8 +66,10 @@ function App() {
           <Route path="brand/:id" element={<Addbrand />} />
           <Route path="list-product" element={<Productlist />} />
           <Route path="product" element={<Addproduct />} />
-
           <Route path="product/:id" element={<Addproduct />} />
+          <Route path="faqs" element={<ListFaqs />} />
+          <Route path="add-faq" element={<AddFaq />} />
+          <Route path="faqs/:id" element={<AddFaq />} />
         </Route>
       </Routes>
     </Router>
