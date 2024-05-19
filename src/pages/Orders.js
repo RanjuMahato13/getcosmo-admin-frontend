@@ -26,44 +26,27 @@ const columns = [
     title: "Date",
     dataIndex: "date",
   },
-
-  {
-    title: "Action",
-    dataIndex: "action",
-  },
 ];
 
 const Orders = () => {
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getOrders());
-  }, []);
   const orderState = useSelector((state) => state.auth.orders);
 
   const data1 = [];
   for (let i = 0; i < orderState.length; i++) {
     data1.push({
       key: i + 1,
-      name: orderState[i].orderby.firstname,
+      name: orderState[i].user.firstname,
       product: (
-        <Link to={`/admin/order/${orderState[i].orderby._id}`}>
-          View Orders
-        </Link>
+        <Link to={`/admin/order/${orderState[i].user._id}`}>View Orders</Link>
       ),
-      amount: orderState[i].paymentIntent.amount,
+      amount: orderState[i].totalPrice,
       date: new Date(orderState[i].createdAt).toLocaleString(),
-      action: (
-        <>
-          <Link to="/" className=" fs-3 text-danger">
-            <BiEdit />
-          </Link>
-          <Link className="ms-3 fs-3 text-danger" to="/">
-            <AiFillDelete />
-          </Link>
-        </>
-      ),
     });
   }
+  useEffect(() => {
+    dispatch(getOrders());
+  }, []);
   return (
     <div>
       <h3 className="mb-4 title">Orders</h3>

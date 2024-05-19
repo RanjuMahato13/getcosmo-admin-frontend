@@ -26,13 +26,13 @@ const login = async (user) => {
 
 const getOrders = async () => {
   const response = await axios.get(`${base_url}user/getallorders`, config);
+  console.log(response.data);
   return response.data;
 };
 
 const getOrder = async (id) => {
-  const response = await axios.post(
+  const response = await axios.get(
     `${base_url}user/getorderbyuser/${id}`,
-    "",
     config
   );
   return response.data;

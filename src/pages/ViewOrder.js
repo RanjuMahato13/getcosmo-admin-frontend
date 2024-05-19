@@ -34,11 +34,6 @@ const columns = [
     title: "Date",
     dataIndex: "date",
   },
-
-  {
-    title: "Action",
-    dataIndex: "action",
-  },
 ];
 
 const ViewOrder = () => {
@@ -48,33 +43,42 @@ const ViewOrder = () => {
   useEffect(() => {
     dispatch(getOrderByUser(userId));
   }, []);
-  const orderState = useSelector(
-    (state) => state.auth.orderbyuser?.[0].products
-  );
-  console.log(orderState);
+  const orderState = useSelector((state) => state.auth.orderbyuser);
   const data1 = [];
-  for (let i = 0; i < orderState?.length; i++) {
+  // for (let i = 0; i < orderState?.orderItems.length; i++) {
+  //   data1.push({
+  //     key: i + 1,
+  //     name: orderState?.[i].orderItems.product?.title,
+  //     // product: orderState?.[i].product,
+  //     brand: orderState?.[i].orderItems.product.brand,
+  //     count: orderState?.[i].count,
+  //     amount: orderState?.[i].product?.price,
+  //     shade: orderState?.[i].product?.shades,
+  //     date: orderState?.[i].product?.createdAt,
+  //     action: (
+  //       <>
+  //         <Link to="/" className=" fs-3 text-danger">
+  //           <BiEdit />
+  //         </Link>
+  //         <Link className="ms-3 fs-3 text-danger" to="/">
+  //           <AiFillDelete />
+  //         </Link>
+  //       </>
+  //     ),
+  //   });
+  // }
+  orderState?.orderItems.map((item, idx) => {
     data1.push({
-      key: i + 1,
-      name: orderState?.[i].product?.title,
-      product: orderState?.[i].product,
-      brand: orderState?.[i].product.brand,
-      count: orderState?.[i].count,
-      amount: orderState?.[i].product?.price,
-      shade: orderState?.[i].product?.shades,
-      date: orderState?.[i].product?.createdAt,
-      action: (
-        <>
-          <Link to="/" className=" fs-3 text-danger">
-            <BiEdit />
-          </Link>
-          <Link className="ms-3 fs-3 text-danger" to="/">
-            <AiFillDelete />
-          </Link>
-        </>
-      ),
+      key: idx + 1,
+      name: item.product.title,
+      brand: item.product.brand,
+      count: item.quantity,
+      shade: item.shade.title,
+      amount: `Rs. ${item.quantity * item.price}`,
+      date: new Date(orderState.createdAt).toDateString(),
     });
-  }
+  });
+  // })
   return (
     <div>
       <h3 className="mb-4 title"> View Order</h3>
